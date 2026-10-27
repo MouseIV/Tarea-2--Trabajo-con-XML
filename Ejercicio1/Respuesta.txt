@@ -1,0 +1,2 @@
+Modificar el Document cambia el XML solo en la memoria del programa, 
+Transformer es lo guarda esos cambios en el fichero del disco.

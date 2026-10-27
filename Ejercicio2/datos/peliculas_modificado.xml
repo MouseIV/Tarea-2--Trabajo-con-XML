@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<peliculas>
+       
+    <pelicula id="P01">
+               
+        <titulo>Coco</titulo>
+               
+        <genero>Animación</genero>
+               
+        <copias>5</copias>
+           
+    </pelicula>
+       
+    <pelicula id="P02">
+               
+        <titulo>La isla del tesoro</titulo>
+               
+        <genero>Aventura</genero>
+               
+        <copias>2</copias>
+           
+    </pelicula>
+       
+    <pelicula id="P03">
+               
+        <titulo>Viaje a la Luna</titulo>
+               
+        <genero>Ciencia ficción</genero>
+               
+        <copias>0</copias>
+           
+    </pelicula>
+       
+    <pelicula id="P04">
+               
+        <titulo>El gran hotel</titulo>
+               
+        <genero>Comedia</genero>
+               
+        <copias>1</copias>
+           
+    </pelicula>
+    
+</peliculas>

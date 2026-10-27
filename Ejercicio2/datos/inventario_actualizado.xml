@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<inventario>
+  <material>
+    <codigo>M01</codigo>
+    <nombre>Ratón</nombre>
+    <unidades>4</unidades>
+  </material>
+  <material>
+    <codigo>M02</codigo>
+    <nombre>Teclado</nombre>
+    <unidades>2</unidades>
+  </material>
+  <material>
+    <codigo>M03</codigo>
+    <nombre>Pantalla</nombre>
+    <unidades>0</unidades>
+  </material>
+  <material>
+    <codigo>M04</codigo>
+    <nombre>Cable HDMI</nombre>
+    <unidades>0</unidades>
+  </material>
+</inventario>
