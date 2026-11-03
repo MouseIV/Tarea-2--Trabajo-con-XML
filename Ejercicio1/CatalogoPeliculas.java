@@ -11,7 +11,7 @@ public class CatalogoPeliculas {
     public static void main(String[] args) {
         try {
             // 1. Leer y mostrar el catálogo original
-            System.out.println("=== CATÁLOGO ORIGINAL ===");
+            System.out.println("=== CATALOGO ORIGINAL ===");
             Document doc = cargarDocumento("datos/peliculas.xml");
             mostrarCatalogo(doc);
 
@@ -60,13 +60,13 @@ public class CatalogoPeliculas {
 
             System.out.println("Copias actualizadas correctamente.");
 
-            // 3. Guardar el catálogo completo en el mismo XML
-            String fichero = "datos/peliculas.xml";
+            // 3. Guardar el catálogo completo en el XML modificado
+            String fichero = "datos/peliculas_modificado.xml";
             guardarDocumento(doc, fichero);
             System.out.println("\nCatálogo guardado en: " + fichero);
 
             // 4. Volver a leerlo para comprobar el cambio
-            System.out.println("\n=== CATÁLOGO DESPUÉS DE LA MODIFICACIÓN ===");
+            System.out.println("\n=== CATALOGO DESPUÉS DE LA MODIFICACION ===");
             Document docModificado = cargarDocumento(fichero);
             mostrarCatalogo(docModificado);
 
