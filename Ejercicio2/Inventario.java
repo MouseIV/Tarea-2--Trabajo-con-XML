@@ -12,7 +12,6 @@ public class Inventario {
     @JacksonXmlElementWrapper(useWrapping = false)
     private List<Material> materiales = new ArrayList<>();
 
-    // Constructor vacío
     public Inventario() {
     }
 

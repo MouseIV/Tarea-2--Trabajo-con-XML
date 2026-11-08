@@ -1,0 +1,4 @@
+readValue(): Es el proceso de deserialización; convierte el contenido de un archivo o flujo XML en un objeto Java estructurado, mapeando los elementos XML a las propiedades de la clase correspondiente.
+writeValue(): Es el proceso de serialización; toma un objeto Java y lo convierte a formato XML, generando la estructura de etiquetas y atributos necesaria para guardarlo en un archivo o flujo de salida.
+
+Porque transforma los datos desde un modelo jerárquico (XML), basado en etiquetas anidadas y dependencias estructurales, a un formato tabular de texto plano, donde la información se organiza exclusivamente en filas y columnas separadas por delimitadores (en este caso, punto y coma). Es un cambio de arquitectura de datos (jerárquica a plana).

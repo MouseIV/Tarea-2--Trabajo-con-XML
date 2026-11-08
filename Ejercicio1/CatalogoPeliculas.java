@@ -8,11 +8,14 @@ import java.util.Scanner;
 
 public class CatalogoPeliculas {
 
+    private static final String FICHERO_ENTRADA = "datos/peliculas.xml";
+    private static final String FICHERO_SALIDA = "datos/peliculas_actualizadas.xml";
+
     public static void main(String[] args) {
         try {
             // 1. Leer y mostrar el catálogo original
-            System.out.println("=== CATALOGO ORIGINAL ===");
-            Document doc = cargarDocumento("datos/peliculas.xml");
+            System.out.println("=== CATÁLOGO ORIGINAL ===");
+            Document doc = cargarDocumento(FICHERO_ENTRADA);
             mostrarCatalogo(doc);
 
             // 2. Localizar una película por su identificador y cambiar copias
@@ -22,7 +25,7 @@ public class CatalogoPeliculas {
 
             Element pelicula = buscarPeliculaPorId(doc, idBuscado);
             if (pelicula == null) {
-                System.out.println("No se encontró ninguna película con id = " + idBuscado);
+                System.out.println("Película no encontrada");
                 System.out.println("No se ha modificado ni sobrescrito el fichero.");
                 sc.close();
                 return;   // No se guarda nada
@@ -53,21 +56,16 @@ public class CatalogoPeliculas {
             }
 
             // Actualizar el valor de copias
-            NodeList nodosCopias = pelicula.getElementsByTagName("copias");
-            if (nodosCopias.getLength() > 0) {
-                nodosCopias.item(0).setTextContent(String.valueOf(nuevasCopias));
-            }
+            modificarTextoElemento(pelicula, "copias", String.valueOf(nuevasCopias));
+            System.out.println("Copias actualizadas correctamente: " + titulo + " de " + copiasActuales + " a " + nuevasCopias + " copias.");
 
-            System.out.println("Copias actualizadas correctamente.");
-
-            // 3. Guardar el catálogo completo en el XML modificado
-            String fichero = "datos/peliculas_modificado.xml";
-            guardarDocumento(doc, fichero);
-            System.out.println("\nCatálogo guardado en: " + fichero);
+            // 3. Guardar el catálogo completo en el XML actualizado
+            guardarDocumento(doc, FICHERO_SALIDA);
+            System.out.println("\nCatálogo guardado en: " + FICHERO_SALIDA);
 
             // 4. Volver a leerlo para comprobar el cambio
-            System.out.println("\n=== CATALOGO DESPUÉS DE LA MODIFICACION ===");
-            Document docModificado = cargarDocumento(fichero);
+            System.out.println("\n=== CATÁLOGO DESPUÉS DE LA MODIFICACIÓN ===");
+            Document docModificado = cargarDocumento(FICHERO_SALIDA);
             mostrarCatalogo(docModificado);
 
             sc.close();
@@ -137,7 +135,15 @@ public class CatalogoPeliculas {
         return "";
     }
 
-    /** Guarda un Document en un fichero XML */
+    /** Modifica el texto de un elemento hijo por nombre de etiqueta */
+    private static void modificarTextoElemento(Element padre, String nombreEtiqueta, String nuevoTexto) {
+        NodeList nodos = padre.getElementsByTagName(nombreEtiqueta);
+        if (nodos.getLength() > 0) {
+            nodos.item(0).setTextContent(nuevoTexto);
+        }
+    }
+
+    /** Guarda un Document en un fichero XML con sangría y UTF-8 */
     private static void guardarDocumento(Document doc, String ruta) throws Exception {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();

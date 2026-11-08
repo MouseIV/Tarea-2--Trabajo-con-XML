@@ -13,7 +13,6 @@ public class Material {
     @JacksonXmlProperty(localName = "unidades")
     private int unidades;
 
-    // Constructor vacío (obligatorio para Jackson)
     public Material() {
     }
 
